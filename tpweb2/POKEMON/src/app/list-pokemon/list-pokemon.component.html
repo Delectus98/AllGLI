@@ -1,0 +1,16 @@
+<br>
+<br>
+<p>list-pokemon works!</p>
+<ul>
+  <li *ngFor="let p of pokemons">{{p.name}}</li>
+</ul>
+
+Mon pokémon selectionné est {{selectedPokId}}
+<input [(ngModel)]="searchPokName">
+<select [(ngModel)]="selectedPokId">
+  <option [value]="pokemon.id" *ngFor="let pokemon of pokemons | filterPokemonPipe: 'name':searchPokName">{{pokemon.name}}</option>
+</select>
+<button (click)="go()">GO</button>
+<div *ngIf="pokemonDetail">
+  <app-pokemon-detail [detail]="pokemonDetail"></app-pokemon-detail>
+</div>
